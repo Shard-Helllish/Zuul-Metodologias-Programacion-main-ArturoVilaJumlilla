@@ -149,7 +149,8 @@ class Game:
             wantToQuit = self.quit(command)
         elif(commandWord == "look"):
             self.look_items(command)
-            self.look_npc(command)
+        elif(commandWord == "look"):
+            self.look_npc(command) ####
         elif(commandWord == "bag"):
             self.bag_items(command)
         elif(commandWord == "back"):
@@ -269,6 +270,9 @@ class Game:
     def look_items(self):
         self.currentRoom.print_items_information()
 
+    def look_npc(self):
+            self.currentRoom.print_npc_information()
+
     def bag_items(self):
         self.player.print_items_information()
     
@@ -293,7 +297,6 @@ class Game:
             return False
         else:
             return True
-
 g = Game()
 g.play() 
 

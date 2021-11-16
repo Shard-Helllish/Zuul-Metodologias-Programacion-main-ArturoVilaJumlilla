@@ -3,6 +3,8 @@ class Room:
         self.description = description
         self.exits = {}  # ! clave -> valor
         self.items = {}
+        self.Npc = {}
+
         # ! listas y diccionarios
         # [mesa, silla, espada]
         # {'mesa': mesa, 'silla': silla, 'espada': espada}
@@ -32,6 +34,15 @@ class Room:
             return self.items.pop(item)
         else:
             return None
+    
+    def setNpc(self, npc):
+            self.items[npc.name] = npc
+    
+    def getNpc(self, npc):
+        if(npc in self.Npc):
+            return self.Npc.pop(npc)
+        else:
+            return None
 
     def getDescription(self):
         return self.description
@@ -52,11 +63,17 @@ class Room:
             return None
 
     def print_items_information(self):
-        print("Items: ")
+        print("items: ")
         items = ''
         for item in self.items.keys():
             items += self.items[item].name + ' '
         print(items)
-        
+    
+    def print_npc_information(self):
+        print("npc: ")
+        npc = ''
+        for npc in self.Npc.keys():
+            npc += self.Npc[npc].name + ' '
+        print(npc)
 
     
